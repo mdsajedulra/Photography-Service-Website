@@ -1,9 +1,11 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Main from '../../../Main/Main';
+import AddServices from '../../AddServices/AddServices';
 import AllServices from '../../AllServices/AllServices';
 import Home from '../../Home/Home';
 import Login from '../../Login/Login';
+import MyReviews from '../../MyReviews/MyReviews';
 import Register from '../../Register/Register';
 import ServiceDetails from '../../ServiceDetails/ServiceDetails';
 
@@ -33,6 +35,14 @@ const Route = () => {
                     path: '/servicedetails/:id',
                     element: <ServiceDetails></ServiceDetails>,
                     loader: ({ params }) => fetch(`http://localhost:5000/servicedetails/${params.id}`)
+                },
+                {
+                    path: '/myreviews',
+                    element: <MyReviews></MyReviews>
+                },
+                {
+                    path: '/addservices',
+                    element: <AddServices></AddServices>
                 },
             ]
         }

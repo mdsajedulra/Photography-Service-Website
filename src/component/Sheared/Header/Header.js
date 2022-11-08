@@ -75,20 +75,37 @@ const Header = () => {
                     <Navbar.Toggle />
                 </div>
                 <Navbar.Collapse>
-                    <Navbar.Link
-                        active={true}
-                    >
-                        <Link to='/'>Home</Link>
-                    </Navbar.Link>
-                    <Navbar.Link href="/navbars">
-                        My Reviews
-                    </Navbar.Link>
-                    <Navbar.Link href="/navbars">
-                        Add Service
-                    </Navbar.Link>
-                    <Navbar.Link href="/navbars">
-                        Contact
-                    </Navbar.Link>
+                    {
+                        user ?
+                            <>
+                                <Navbar.Link
+                                    active={true}
+                                >
+                                    <Link to='/'>Home</Link>
+                                </Navbar.Link>
+                                <Navbar.Link>
+                                    <Link to='myreviews'>
+                                        My Reviews
+                                    </Link>
+                                </Navbar.Link>
+                                <Navbar.Link href="/navbars">
+                                    <Link to="addservices">
+                                        Add Service
+                                    </Link>
+                                </Navbar.Link>
+                                <Navbar.Link href="/navbars">
+                                    Contact
+                                </Navbar.Link>
+                            </>
+                            :
+                            <>
+                                <Navbar.Link
+                                    active={true}
+                                >
+                                    <Link to='/'>Home</Link>
+                                </Navbar.Link>
+                            </>
+                    }
 
                 </Navbar.Collapse>
             </Navbar>

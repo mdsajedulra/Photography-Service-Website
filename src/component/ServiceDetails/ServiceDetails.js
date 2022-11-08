@@ -82,7 +82,7 @@ const ServiceDetails = () => {
                         <div>
                             <label htmlFor="name">Name</label>
                             <br />
-                            <input name='name' defaultValue={user?.displayName} readOnly className='w-full mb-5 border rounded-xl' type="text" placeholder='Name' id='name' />
+                            <input name='name' defaultValue={user?.displayName} className='w-full mb-5 border rounded-xl' type="text" placeholder='Name' id='name' />
                         </div>
                         <div>
                             <label htmlFor="email">Email</label>
