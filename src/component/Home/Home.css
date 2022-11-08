@@ -1,0 +1,9 @@
+.contact-us {
+    background-image: url('../../assets/slider1.png');
+    background-color: rgba(57, 57, 57, 0.7);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 50vh;
+    width: 100%;
+
+}
