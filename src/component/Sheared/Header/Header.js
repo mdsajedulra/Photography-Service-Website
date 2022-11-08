@@ -15,7 +15,7 @@ const Header = () => {
             .catch(error => console.log(error))
     }
     return (
-        <div>
+        <div className='shadow-lg'>
             <Navbar
                 fluid={true}
                 rounded={true}
