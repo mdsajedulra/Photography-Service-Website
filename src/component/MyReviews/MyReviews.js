@@ -1,4 +1,3 @@
-import { async } from '@firebase/util';
 import { Table } from 'flowbite-react';
 import React, { useContext, useEffect, useState } from 'react';
 import { authContext } from '../../context/AuthProvider/Authprovider';
@@ -19,37 +18,42 @@ const MyReviews = () => {
     // console.log(review)
     return (
         <div className='my-10'>
-            <h1 className='m-5 text-2xl font-semibold text-center '>You can see your all reviews</h1>
             {
                 (reviews.length === 0) ? <><p className='p-56 text-center'>No reviews were added</p></> :
-                    <Table striped={true}>
-                        <Table.Head>
-                            <Table.HeadCell>
-                                User Name
-                            </Table.HeadCell>
-                            <Table.HeadCell>
-                                Service Name
-                            </Table.HeadCell>
-                            <Table.HeadCell>
-                                Review
-                            </Table.HeadCell>
-                            <Table.HeadCell>
-                                Service Name
-                            </Table.HeadCell>
+                    <>
+                        <h1 className='m-5 text-2xl font-semibold text-center '>You can see your all reviews</h1>
 
-                            <Table.HeadCell>
-                                Action
-                            </Table.HeadCell>
+                        <Table striped={true}>
+
+                            <Table.Head>
+                                <Table.HeadCell>
+                                    User Name
+                                </Table.HeadCell>
+                                <Table.HeadCell>
+                                    Service Name
+                                </Table.HeadCell>
+                                <Table.HeadCell>
+                                    Review
+                                </Table.HeadCell>
+                                <Table.HeadCell>
+                                    Service Name
+                                </Table.HeadCell>
+
+                                <Table.HeadCell>
+                                    Action
+                                </Table.HeadCell>
 
 
-                        </Table.Head>
-                        <Table.Body className="divide-y">
+                            </Table.Head>
+                            <Table.Body className="divide-y">
 
-                            {
-                                reviews.map(review => <MyReviewDetails key={review._id} review={review}></MyReviewDetails>)
-                            }
-                        </Table.Body>
-                    </Table>
+                                {
+                                    reviews.map(review => <MyReviewDetails key={review._id} review={review}></MyReviewDetails>)
+                                }
+                            </Table.Body>
+                        </Table>
+                    </>
+
             }
 
         </div>

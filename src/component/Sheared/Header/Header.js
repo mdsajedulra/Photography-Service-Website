@@ -96,6 +96,7 @@ const Header = () => {
                                 <Navbar.Link href="/navbars">
                                     Contact
                                 </Navbar.Link>
+
                             </>
                             :
                             <>
@@ -103,6 +104,19 @@ const Header = () => {
                                     active={true}
                                 >
                                     <Link to='/'>Home</Link>
+                                </Navbar.Link>
+                                <Navbar.Link>
+                                    <Link to='myreviews'>
+                                        My Reviews
+                                    </Link>
+                                </Navbar.Link>
+                                <Navbar.Link href="/navbars">
+                                    <Link to="addservices">
+                                        Add Service
+                                    </Link>
+                                </Navbar.Link>
+                                <Navbar.Link href="/navbars">
+                                    Contact
                                 </Navbar.Link>
                             </>
                     }

@@ -3,10 +3,14 @@ import { Button, Label, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { authContext } from '../../context/AuthProvider/Authprovider';
 import useTitle from '../../useTitle/useTitle';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
     const { loginUsingEmailPassword, loginUsingGooglePopUp } = useContext(authContext);
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/';
     useTitle('Login')
     const handleForm = event => {
         event.preventDefault()
@@ -17,6 +21,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => console.log(error))
     }

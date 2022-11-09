@@ -1,7 +1,8 @@
 import { Card } from 'flowbite-react';
 import React from 'react';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
-import slider1 from '../../assets/slider1.png'
+import 'react-photo-view/dist/react-photo-view.css';
 
 const Service = ({ service }) => {
     const { title, img, price, description, _id } = service;
@@ -11,9 +12,13 @@ const Service = ({ service }) => {
 
             <div className="max-w-sm">
                 <Card
-                    imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-                    imgSrc={img}
+
                 >
+                    <PhotoProvider>
+                        <PhotoView src={img}>
+                            <img className='w-full rounded-xl' src={img} alt="" />
+                        </PhotoView>
+                    </PhotoProvider>
                     <a href="#">
                         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                             {title}
@@ -36,7 +41,7 @@ const Service = ({ service }) => {
                                     <br />
                                     <br />
                                     <Link
-                                        to={`/servicedetails/${_id}`}
+                                        to={`/service/${_id}`}
                                         className="mt-5 rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                     >
                                         View Details
