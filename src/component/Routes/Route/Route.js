@@ -6,6 +6,7 @@ import AllServices from '../../AllServices/AllServices';
 import Home from '../../Home/Home';
 import Login from '../../Login/Login';
 import MyReviews from '../../MyReviews/MyReviews';
+import UpdateReviews from '../../MyReviews/UpdateReviews';
 import Register from '../../Register/Register';
 import ServiceDetails from '../../ServiceDetails/ServiceDetails';
 
@@ -43,6 +44,12 @@ const Route = () => {
                 {
                     path: '/addservices',
                     element: <AddServices></AddServices>
+                },
+                {
+                    path: '/updatereviews/:id',
+                    element: <UpdateReviews></UpdateReviews>,
+                    loader: ({ params }) => fetch(`http://localhost:5000/getreviewid/${params.id}`)
+
                 },
             ]
         }

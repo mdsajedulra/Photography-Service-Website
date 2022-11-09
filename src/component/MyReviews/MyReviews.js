@@ -13,13 +13,13 @@ const MyReviews = () => {
         fetch(`http://localhost:5000/review/user/${user?.email}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setReviews(data)
             })
-    }, [])
+    }, [reviews])
     // console.log(review)
     return (
-        <div>
+        <div className='my-10'>
+            <h1 className='m-5 text-2xl font-semibold text-center '>You can see your all reviews</h1>
             {
                 (reviews.length === 0) ? <><p className='p-56 text-center'>No reviews were added</p></> :
                     <Table striped={true}>
