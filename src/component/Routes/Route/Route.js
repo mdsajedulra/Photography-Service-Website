@@ -37,7 +37,7 @@ const Route = () => {
                 {
                     path: '/service/:id',
                     element: <ServiceDetails></ServiceDetails>,
-                    loader: ({ params }) => fetch(`https://photography-by-sajedul-server.vercel.app/servicedetails/${params.id}`)
+                    loader: ({ params }) => fetch(`http://localhost:5000/servicedetails/${params.id}`)
                 },
                 {
                     path: '/myreviews',
@@ -54,7 +54,7 @@ const Route = () => {
                 {
                     path: '/updatereviews/:id',
                     element: <UpdateReviews></UpdateReviews>,
-                    loader: ({ params }) => fetch(`https://photography-by-sajedul-server.vercel.app/getreviewid/${params.id}`)
+                    loader: ({ params }) => fetch(`http://localhost:5000/getreviewid/${params.id}`)
 
                 },
             ]

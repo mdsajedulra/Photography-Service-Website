@@ -89,8 +89,6 @@ const Header = () => {
                                         Blog
                                     </Link>
                                 </Navbar.Link>
-
-
                             </>
                             :
                             <>
@@ -99,16 +97,7 @@ const Header = () => {
                                 >
                                     <Link to='/'>Home</Link>
                                 </Navbar.Link>
-                                <Navbar.Link>
-                                    <Link to='myreviews'>
-                                        My Reviews
-                                    </Link>
-                                </Navbar.Link>
-                                <Navbar.Link href="/navbars">
-                                    <Link to="addservices">
-                                        Add Service
-                                    </Link>
-                                </Navbar.Link>
+
                                 <Navbar.Link >
                                     <Link to="/blog">
                                         Blog

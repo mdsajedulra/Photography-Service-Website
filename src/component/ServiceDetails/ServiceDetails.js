@@ -27,7 +27,7 @@ const ServiceDetails = () => {
             comment: comment
         }
 
-        fetch(`https://photography-by-sajedul-server.vercel.app/review`, {
+        fetch(`http://localhost:5000/review`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -37,7 +37,7 @@ const ServiceDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if (data) {
+                if (data.acknowledged === true) {
                     toast.success('Update Successfully')
                 }
             })
@@ -46,7 +46,7 @@ const ServiceDetails = () => {
     const [reviews, setReviews] = useState([])
 
     useEffect(() => {
-        fetch(`https://photography-by-sajedul-server.vercel.app/review/${_id}`)
+        fetch(`http://localhost:5000/review/${_id}`)
             .then(res => res.json())
             .then(data => {
                 const reverse = [...data.reverse()]
@@ -54,7 +54,7 @@ const ServiceDetails = () => {
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
             })
     }, [reviews])
 

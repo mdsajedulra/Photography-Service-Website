@@ -14,8 +14,9 @@ const AddServices = () => {
             price: form.price.value,
             description: form.description.value
         }
+        form.reset()
         console.log(service)
-        fetch('https://photography-by-sajedul-server.vercel.app/addservices', {
+        fetch('http://localhost:5000/addservices', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -24,10 +25,12 @@ const AddServices = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data) {
+                console.log(data)
+                if (data.acknowledged === true) {
                     toast.success('Add Successfully')
                 }
             })
+
     }
     return (
         <div>
