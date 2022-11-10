@@ -79,14 +79,17 @@ const Header = () => {
                                         My Reviews
                                     </Link>
                                 </Navbar.Link>
-                                <Navbar.Link href="/navbars">
+                                <Navbar.Link >
                                     <Link to="addservices">
                                         Add Service
                                     </Link>
                                 </Navbar.Link>
-                                <Navbar.Link href="/navbars">
-                                    Contact
+                                <Navbar.Link >
+                                    <Link to="/blog">
+                                        Blog
+                                    </Link>
                                 </Navbar.Link>
+
 
                             </>
                             :
@@ -106,9 +109,12 @@ const Header = () => {
                                         Add Service
                                     </Link>
                                 </Navbar.Link>
-                                <Navbar.Link href="/navbars">
-                                    Contact
+                                <Navbar.Link >
+                                    <Link to="/blog">
+                                        Blog
+                                    </Link>
                                 </Navbar.Link>
+
                             </>
                     }
 

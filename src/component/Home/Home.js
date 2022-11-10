@@ -40,11 +40,11 @@ const Home = () => {
                         <br />
                         <br />
                         Dig into the nitty-gritty of what you expect to find when you arrive – and don’t hesitate to be blunt!</p>
-                    <Button className='my-5'>
+                    <Button className='my-5 '>
                         <Link to='/allservices'>Browse All Services</Link>
                     </Button>
                 </div>
-                <div className='w-1/2'>
+                <div className='w-full xl:w-1/2 md:w-1/2'>
                     <img className=' rounded-xl' src={indor} alt="" />
                 </div>
             </div>
@@ -52,7 +52,7 @@ const Home = () => {
             {/* contact us seciton */}
 
             <div className='flex flex-col items-center justify-center h-full gap-5 my-10 my-20 bg-gray-400 contact-us rounded-xl dark:bg-gray-700 dark:text-white'>
-                <h1 className='text-4xl font-semibold'>Pra Wedding Photo & Video Package</h1>
+                <h1 className='text-3xl font-semibold text-center'>Pra Wedding Photo & Video Package</h1>
                 <p className='w-5/6 text-center'>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                 <button className='p-2 border hover:bg-white hover:text-whtie rounded-xl btn'>Contact Us</button>
 

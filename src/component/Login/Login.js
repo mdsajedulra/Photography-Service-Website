@@ -68,7 +68,7 @@ const Login = () => {
     return (
         <div className='my-20'>
             <h1 className="m-10 text-2xl font-semibold text-center">Log in</h1>
-            <form onSubmit={handleForm} className='w-2/6 p-10 mx-auto my-0 border rounded-xl'>
+            <form onSubmit={handleForm} className='p-10 mx-auto my-0 border sm:full md:w-full xl:w-2/6 rounded-xl'>
                 <div>
                     <div className="block mb-2">
                         <Label

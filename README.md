@@ -1,3 +1,4 @@
+## project's features and functionalities
 * My website Name photography by sajedul, website has 6 services
 * Design Part usting tailwind with flowite
 * home page has two extra section "indorshot section" and "contact us section"
@@ -5,3 +6,4 @@
 * User can delete and update review
 * Every User can add a new service on this webiste
 * All data load from database mongodb
+* Site Live Link https://photograpy-by-sajedul.web.app/
