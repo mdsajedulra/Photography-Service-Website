@@ -16,7 +16,7 @@ const AddServices = () => {
         }
         form.reset()
         console.log(service)
-        fetch('http://localhost:5000/addservices', {
+        fetch('https://photography-by-sajedul-server.vercel.app/addservices', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -10,7 +10,7 @@ const MyReviewDetails = ({ review }) => {
     const handleDelete = (id) => {
         const confirmation = window.confirm("Are your sure delete this review");
         if (confirmation) {
-            fetch(`http://localhost:5000/deletereview/${id}`, {
+            fetch(`https://photography-by-sajedul-server.vercel.app/deletereview/${id}`, {
                 method: 'DELETE'
                 // headers: {
                 //     'content-type': 'application/json'

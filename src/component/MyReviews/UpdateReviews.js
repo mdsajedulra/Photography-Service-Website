@@ -20,7 +20,7 @@ const UpdateReviews = () => {
             comment: form.comment.value
         }
         console.log(updateReview)
-        fetch(`http://localhost:5000/reviewupdate/${_id}`, {
+        fetch(`https://photography-by-sajedul-server.vercel.app/reviewupdate/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

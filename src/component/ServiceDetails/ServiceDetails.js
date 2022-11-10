@@ -27,7 +27,7 @@ const ServiceDetails = () => {
             comment: comment
         }
 
-        fetch(`http://localhost:5000/review`, {
+        fetch(`https://photography-by-sajedul-server.vercel.app/review`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -46,7 +46,7 @@ const ServiceDetails = () => {
     const [reviews, setReviews] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/review/${_id}`)
+        fetch(`https://photography-by-sajedul-server.vercel.app/review/${_id}`)
             .then(res => res.json())
             .then(data => {
                 const reverse = [...data.reverse()]
