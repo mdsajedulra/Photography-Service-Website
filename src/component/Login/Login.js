@@ -30,7 +30,7 @@ const Login = () => {
                     email: user.email
                 }
                 console.log(currentUser)
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://photography-by-sajedul-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -56,6 +56,24 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 navigate(from, { replace: true });
+                const currentUser = {
+                    email: user.email
+                }
+                console.log(currentUser)
+                fetch('https://photography-by-sajedul-server.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('photography', data.token)
+                        navigate(from, { replace: true });
+
+                    })
 
 
 

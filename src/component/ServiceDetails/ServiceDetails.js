@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { json, Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { authContext } from '../../context/AuthProvider/Authprovider';
+import { toast } from 'react-toastify';
 
 const ServiceDetails = () => {
     const { user } = useContext(authContext)
-    console.log(user)
+
 
     const services = useLoaderData();
     const { _id, img, title, description, price } = services;
@@ -25,8 +26,8 @@ const ServiceDetails = () => {
             email: email,
             comment: comment
         }
-        console.log(review)
-        fetch(`http://localhost:5000/review`, {
+
+        fetch(`https://photography-by-sajedul-server.vercel.app/review`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -34,14 +35,27 @@ const ServiceDetails = () => {
             body: JSON.stringify(review)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                if (data) {
+                    toast.success('Update Successfully')
+                }
+            })
     }
     // Load service review
     const [reviews, setReviews] = useState([])
+
     useEffect(() => {
-        fetch(`http://localhost:5000/review/${_id}`)
+        fetch(`https://photography-by-sajedul-server.vercel.app/review/${_id}`)
             .then(res => res.json())
-            .then(data => setReviews(data))
+            .then(data => {
+                const reverse = [...data.reverse()]
+                setReviews(reverse)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
     }, [reviews])
 
     return (
@@ -56,12 +70,12 @@ const ServiceDetails = () => {
             {/* Reviews section */}
             {/* load review  */}
             <div className='flex flex-col gap-3 mt-5'>
-                <h1 className='my-6 text-3xl'>Review Us</h1>
+                <h1 className='my-6 text-3xl'>Review</h1>
 
                 {
                     reviews.map(review => <>
-                        <div className='flex items-center gap-3'>
-                            {console.log(review)}
+                        <div key={review.id} className='flex items-center gap-3'>
+
                             <img className='w-16 border-2 border-blue-700 rounded-full' src={review.userURI ? review.userURI : 'https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png'} alt="" />
                             <div className=''>
                                 <h1 className='font-semibold'>{review?.userName}</h1>

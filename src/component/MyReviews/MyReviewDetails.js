@@ -1,5 +1,6 @@
 import { Table } from 'flowbite-react';
 import React from 'react';
+import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 
 
@@ -7,9 +8,9 @@ const MyReviewDetails = ({ review }) => {
     // console.log(review)
     const { comment, email, serviceName, reviewId, userName, _id } = review;
     const handleDelete = (id) => {
-        const confirmation = window.confirm("Press a button!");
+        const confirmation = window.confirm("Are your sure delete this review");
         if (confirmation) {
-            fetch(`http://localhost:5000/deletereview/${id}`, {
+            fetch(`https://photography-by-sajedul-server.vercel.app/deletereview/${id}`, {
                 method: 'DELETE'
                 // headers: {
                 //     'content-type': 'application/json'
@@ -19,7 +20,8 @@ const MyReviewDetails = ({ review }) => {
                 .then(res => res.json())
                 .then(data => {
                     if (data) {
-                        alert('succesfully deleted')
+                        toast.success('Successfully deleted')
+                        // alert('succesfully deleted')
                     }
                 })
         }

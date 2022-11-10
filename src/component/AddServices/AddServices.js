@@ -1,5 +1,6 @@
 import React from 'react';
 import useTitle from '../../useTitle/useTitle';
+import { toast } from 'react-toastify';
 
 const AddServices = () => {
     useTitle('Add Service')
@@ -14,13 +15,19 @@ const AddServices = () => {
             description: form.description.value
         }
         console.log(service)
-        fetch('http://localhost:5000/addservices', {
+        fetch('https://photography-by-sajedul-server.vercel.app/addservices', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(service)
         })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    toast.success('Add Successfully')
+                }
+            })
     }
     return (
         <div>
@@ -47,7 +54,7 @@ const AddServices = () => {
 
                     <textarea name='description' className='w-full h-40 mb-5 border rounded-xl' id="description" rows="4" cols="50" placeholder='Write prodcut description'></textarea>
                 </div>
-                <button className=" rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type='submit'>Submit</button>
+                <button className=" rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type='submit'>Add Service</button>
             </form>
         </div>
     );

@@ -12,7 +12,7 @@ const MyReviews = () => {
 
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/review/user/${user?.email}`, {
+        fetch(`https://photography-by-sajedul-server.vercel.app/review/user/${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('photography')}`
             }

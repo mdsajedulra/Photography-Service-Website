@@ -1,6 +1,8 @@
 
 import indor from '../../assets/indor.jpg'
 import slider1 from '../../assets/slider1.png'
+import slider2 from '../../assets/slider2.png'
+import slider3 from '../../assets/slider3.png'
 import { Button, Card, Carousel } from 'flowbite-react';
 import React from 'react';
 import './Home.css'
@@ -12,10 +14,22 @@ const Home = () => {
         // sm:h-64 xl:h-80 2xl:h-96
         <div>
 
-            <div className="my-10 h-96 ">
+            <div className="my-10 h-[70vh] ">
                 <Carousel>
                     <div className="flex items-center justify-center h-full bg-gray-400 dark:bg-gray-700 dark:text-white">
                         <img className='relative w-full h-screen opacity-80' src={slider1} alt="" />
+                        <div className='absolute'>
+                            <h1 className='text-6xl font-semibold text-center text-white'>Make your wedding a <br /> wonderful story.</h1>
+                        </div>
+                    </div>
+                    <div className="flex items-center justify-center h-full bg-gray-400 dark:bg-gray-700 dark:text-white">
+                        <img className='relative w-full h-screen opacity-80' src={slider2} alt="" />
+                        <div className='absolute'>
+                            <h1 className='text-6xl font-semibold text-center text-white'>Make your wedding a <br /> wonderful story.</h1>
+                        </div>
+                    </div>
+                    <div className="flex items-center justify-center h-full bg-gray-400 dark:bg-gray-700 dark:text-white">
+                        <img className='relative w-full h-screen opacity-80' src={slider3} alt="" />
                         <div className='absolute'>
                             <h1 className='text-6xl font-semibold text-center text-white'>Make your wedding a <br /> wonderful story.</h1>
                         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
-
+import { toast } from 'react-toastify';
 const UpdateReviews = () => {
 
 
@@ -20,7 +20,7 @@ const UpdateReviews = () => {
             comment: form.comment.value
         }
         console.log(updateReview)
-        fetch(`http://localhost:5000/reviewupdate/${_id}`, {
+        fetch(`https://photography-by-sajedul-server.vercel.app/reviewupdate/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -29,7 +29,7 @@ const UpdateReviews = () => {
         }).then(res => res.json())
             .then(data => {
                 if (data.data) {
-                    alert('successfully updated')
+                    toast.success('Update Successfully')
                 }
                 console.log(data.data)
             })
@@ -56,7 +56,7 @@ const UpdateReviews = () => {
 
                     <textarea defaultValue={comment} name='comment' className='w-full h-40 mb-5 border rounded-xl' id="w3review" rows="4" cols="50" placeholder=' write your valueable comment'></textarea>
                 </div>
-                <button className=" rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type='submit'>Submit</button>
+                <button className=" rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type='submit'>Update</button>
             </form>
 
         </div>
