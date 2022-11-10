@@ -1,15 +1,12 @@
 import { Footer } from 'flowbite-react';
+import logo from '../../../logo.png'
 import React from 'react';
 
 const Mainfooter = () => {
     return (
-        <div>
+        <div className='border-t-2'>
             <Footer container={true}>
-                <Footer.Copyright
-                    href="#"
-                    by="Flowbite™"
-                    year={2022}
-                />
+                <img className='w-28' src={logo} alt="" />
                 <Footer.LinkGroup>
                     <Footer.Link href="#">
                         About

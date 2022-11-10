@@ -1,9 +1,12 @@
 import { Table } from 'flowbite-react';
 import React, { useContext, useEffect, useState } from 'react';
 import { authContext } from '../../context/AuthProvider/Authprovider';
+import useTitle from '../../useTitle/useTitle';
 import MyReviewDetails from './MyReviewDetails';
 
 const MyReviews = () => {
+    useTitle('My Reviews') // page dynaic title
+
     const { user } = useContext(authContext);
     // console.log(user?.email)
 

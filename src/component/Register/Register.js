@@ -1,6 +1,6 @@
 import google from '../../assets/google.png'
 import { Button, Label, TextInput } from 'flowbite-react';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { authContext } from '../../context/AuthProvider/Authprovider';
 import useTitle from '../../useTitle/useTitle';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -16,6 +16,9 @@ const Register = () => {
 
     const { registerUsingEmailPassword, loginUsingGooglePopUp } = useContext(authContext)
 
+    const [error, setError] = useState('')
+
+
     const handleForm = event => {
         event.preventDefault()
         const form = event.target;
@@ -28,7 +31,10 @@ const Register = () => {
                 navigate(from, { replace: true });
 
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                setError(error.message)
+
+            })
     }
     const handleGoogleLogin = () => {
         loginUsingGooglePopUp()
@@ -37,12 +43,14 @@ const Register = () => {
                 console.log(user);
                 navigate(from, { replace: true });
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                setError(error.message)
+            })
     }
     return (
         <div className='mt-20'>
             <h1 className="m-10 text-2xl font-semibold text-center">Register</h1>
-            <form onSubmit={handleForm} className='w-2/6 mx-auto my-0'>
+            <form onSubmit={handleForm} className='w-2/6 p-10 mx-auto my-0 border rounded-xl'>
                 <div>
                     <div className="block mb-2">
                         <Label
@@ -87,6 +95,9 @@ const Register = () => {
                         required={true}
                     />
                 </div>
+                <p className='mt-3 text-red-700'>{
+                    error.slice(9)
+                }</p>
                 <Button type='submit' className='w-full my-5'>
                     Login
                 </Button>
