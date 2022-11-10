@@ -3,7 +3,7 @@ import { Button, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
 import { authContext } from '../../context/AuthProvider/Authprovider';
 import useTitle from '../../useTitle/useTitle';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { json, useLocation, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
@@ -26,6 +26,24 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 navigate(from, { replace: true });
+                const currentUser = {
+                    email: user.email
+                }
+                console.log(currentUser)
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('photography', data.token)
+                        navigate(from, { replace: true });
+
+                    })
             })
             .catch(error => {
                 console.log(error)
@@ -38,6 +56,10 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 navigate(from, { replace: true });
+
+
+
+
             })
             .catch(error => {
                 setError(error.message)
